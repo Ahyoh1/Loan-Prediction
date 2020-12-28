@@ -18,5 +18,12 @@ recorded and meaningful insights were gain from them. </p>
 <p> A <strong> RMSE </strong > value of 
 <strong> 0.44 </strong> was recorded and an <strong> ACCURACY SCORE</strong> of about 80% was achieved.</p>
 
+<h2> Machine Learning Deployment </h2>
+
+<p> Author : Kamaldeen Aiyeleso </p>
+<h3>Aims and Objective </h3>
+<p> Get the model ready for user consumption</p>
+<p> Provide a seamless method of deciding on loan status of customer </p>
+
 <p> Further test can be carried out on same dataset 
 to improve on the accuracy </p>  
