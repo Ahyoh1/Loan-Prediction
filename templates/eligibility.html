@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <!-- rendering to device width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" type="text/css" />
+    <title> Loanme </title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+ 
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <a class="navbar-brand" href="/">Loan Me</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Eligibility</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/about.html">About</a>
+      </li>    
+    </ul>
+  </div>  
+</nav>
+  <form action="{{url_for('check')}}" method='post'>
+<div class="container-fluid">
+	<div class="container pt-3">	
+	<div class="row">
+  			<div class="col-sm-4">
+        <br>
+        <div class="input-group mb-3 input-group-sm">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Gender</span>
+          </div>
+            <select name="genders" class="custom-select">
+              <option selected>Select Gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+        </div>
+          <br>
+          <div class="input-group mb-3 input-group-sm">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Marital Status</span>
+          </div>
+            <select name="marital" class="custom-select">
+              <option selected>Select</option>
+              <option value="married">Married</option>
+              <option value="single">Single</option>
+            </select>
+        </div>
+        <br>
+        <div class="input-group mb-3 input-group-sm">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Dependents</span>
+          </div>
+            <select name="dependent" class="custom-select">
+              <option selected>Select</option>
+              <option value="zero">0</option>
+              <option value="one">1</option>
+              <option value="two">2</option>
+              <option value="three-more">3+</option>
+            </select>
+        </div>
+        <br>
+        <div class="input-group mb-3 input-group-sm">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Education Status</span>
+          </div>
+            <select name="education" class="custom-select">
+              <option selected>Select</option>
+              <option value="graduate">Graduate</option>
+              <option value="n-g">Non-graduate</option>
+            </select>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <br>
+        <div class="input-group mb-3 input-group-sm">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Self-Employed</span>
+          </div>
+            <select name="self-employ" class="custom-select">
+              <option selected>Select</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+        </div>
+        <br>
+        <div class="input-group mb-3 input-group-sm">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Income($)</span>
+          </div>
+          <input type="text" class="form-control" placeholder="0 - 99999" name="income">
+        </div>
+        <br>
+        <div class="input-group mb-3 input-group-sm">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Co-Applicant Income($)</span>
+          </div>
+          <input type="text" class="form-control" placeholder="0 - 99999" name="co-income">
+        </div>
+        <br>
+        <!--
+        <div class="container-fluid">
+          <div class="container pt-3">
+            <button type="submit" class="btn btn-primary">Predict</button>
+          </div>
+        </div>
+      -->
+      </div>
+      <div class="col-sm-4">
+        <br>
+        <div class="input-group mb-3 input-group-sm">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Loan Amount($)</span>
+          </div>
+          <input type="text" class="form-control" placeholder="0 - 99999" name="loan-amount">
+        </div>
+        <br>
+        <div class="input-group mb-3 input-group-sm">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Loan Term</span>
+          </div>
+          <input type="text" class="form-control" placeholder="Days" name="term">
+        </div>
+        <br>
+        <div class="input-group mb-3 input-group-sm">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Credit History</span>
+          </div>
+          <select name="credit-history" class="custom-select">
+              <option selected value="zero">0.0</option> 
+              <option value="one">1.0</option>
+            </select>
+        </div>
+        <br>
+        <div class="input-group mb-3 input-group-sm">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Settlement Area</span>
+          </div>
+          <select name="settlement" class="custom-select">
+              <option selected>Select</option>
+              <option value="urban">Urban</option>
+              <option value="rural">Rural</option>
+              <option value="semi"> Semi-Urban</option>
+            </select>
+        </div>
+        <br>
+
+      </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid" id="predict-section">
+          <div class="container pt-3">
+            <button type="submit" class="btn btn-primary">Check Eligibility</button>
+          </div>
+        </div>
+        <br>
+</form>
+
+<section>
+  <div class="jumbotron text-center" style="margin-bottom:0" id="footer-section">
+  <p>Copyright 2020.</p>
+  <p>K. E. Aiyeleso </p>
+</div>
+</section>
+
+
+
+  </body>

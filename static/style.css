@@ -1,0 +1,18 @@
+#predict-section {
+	 text-align: center;
+}
+
+#site-section {
+	background-color: white;
+}
+
+#Navbar {
+	text-align: right;
+	align-items: right;
+	float:right;
+}
+
+a {
+	color: red;
+	
+}
